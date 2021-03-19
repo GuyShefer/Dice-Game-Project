@@ -73,11 +73,21 @@
 
 .current-score-box {
     border: 1px solid;
-    width: min-content;
-    padding: 10px;
+    width: fit-content;
+    border-radius: 50%;
+    padding: 20px;
     margin: 20px auto 0;
-    background-color: #fff;
+    background-color: #A52A2A;
+    color: #fff;
     cursor: pointer;
+}
+
+.current-score-box:hover {
+    background: #CD3333;
+}
+
+.current-score-box h2 {
+    margin: 0;
 }
 
 .pointsToWin {
@@ -120,3 +130,41 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
 }
+
+@media screen and (max-width: 500px) {
+    .main-board {
+        width: 80vw;
+    }
+    .main-board .player-box h2 {
+        font-size: 26px;
+    }
+    .main-board .player-box h3 {
+        margin-top: 30px;
+        font-size: 22px;
+    }
+    .dice {
+        width: 70px;
+        height: 70px;
+    }
+    .current-score-box {
+        padding: 10px;
+        margin: 10px auto 0;
+    }
+    .current-score-box h2,
+    .current-score-box h3 {
+        font-size: 16px;
+    }
+    .pointsToWin {
+        width: 80px;
+        height: 30px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .restart {
+        font-size: 12px;
+        padding: 20px;
+        margin: 14px 0;
+        width: 120px;
+    }
+
+  }

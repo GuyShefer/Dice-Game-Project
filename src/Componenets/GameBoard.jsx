@@ -84,8 +84,6 @@ export class GameBoard extends React.Component {
     }
 
     changeWinningScore = (e) => {
-        // check if the number is valid (positive)
-        // check if both useres with 0 score.
         this.setState({ pointsToWin: e.target.value })
     }
 
@@ -95,7 +93,7 @@ export class GameBoard extends React.Component {
                 <section className="body">
                     <div className="main-board">
                         {this.state.players.map(player => {
-                            return <Player key={player.playerName} playerName={player.playerName} playerTotalScore={player.totalScore} back={player.background} /> //key +playername
+                            return <Player key={player.playerName} playerName={player.playerName} playerTotalScore={player.totalScore} back={player.background} />
                         })}
                         <div className="actions">
                             <DicesSection dicesValues={this.state.dices} rollDice={this.rollTheDice} />
