@@ -5,6 +5,8 @@ import { DicesSection } from './DicesSection';
 import { CurrentScore } from './CurrentScore';
 import 'semantic-ui-css/semantic.min.css'
 import WinnerModal from './WinnerModal';
+import { Popup } from 'semantic-ui-react'
+
 
 export class GameBoard extends React.Component {
     constructor(props) {
@@ -28,7 +30,7 @@ export class GameBoard extends React.Component {
                 {
                     playerName: '2',
                     totalScore: 0,
-                    background: '#D8D8D8'
+                    background: '#E6E6E6'
                 },
             ]
         }
@@ -50,7 +52,7 @@ export class GameBoard extends React.Component {
             this.setState({ ...stateToUpdate, dices: [firstDice, secondDice] });
 
         } else {
-            // add to the total amount the sum of the dice
+            // add to the sum of the dice to the total amount
             const sumDices = firstDice + secondDice + this.state.currentScore;
             this.setState({ dices: [firstDice, secondDice], currentScore: sumDices })
         }
@@ -98,7 +100,12 @@ export class GameBoard extends React.Component {
                         <div className="actions">
                             <DicesSection dicesValues={this.state.dices} rollDice={this.rollTheDice} />
                             <CurrentScore currentScore={this.state.currentScore} holdScore={this.setHoldPlayerScore} />
-                            <input className="pointsToWin" type="number" value={this.state.pointsToWin} onChange={this.changeWinningScore} />
+                            <div>
+                                <input className="restart" type="button" value="Restart Game" onClick={this.restartGame} />
+                            </div>
+                            <Popup content="Set The Number Of Points To Win" position='bottom center' trigger={
+                                <input className="pointsToWin" type="number" value={this.state.pointsToWin} onChange={this.changeWinningScore} />
+                            } />
                             <WinnerModal active={this.state.modalActive} playerWon={this.state.playerTurn} restart={this.restartGame} />
                         </div>
                     </div>
