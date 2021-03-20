@@ -1,11 +1,12 @@
 import React from 'react'
 import { Button, Image, Modal } from 'semantic-ui-react'
 
+
 function WinnerModal(props) {
     const [open, setOpen] = React.useState(props.active)
 
     React.useEffect(() => {
-        setOpen(props.active)
+        setOpen(props.active);
     }, [props.active])
 
     

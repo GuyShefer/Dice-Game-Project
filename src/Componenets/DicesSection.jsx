@@ -2,10 +2,13 @@ import React from 'react';
 import { Dice } from './Dice';
 import { Popup } from 'semantic-ui-react'
 
+const audio = new Audio("/sounds/4roll.mp3");
+
 export class DicesSection extends React.Component {
 
     rollTheDice = () => {
         this.props.rollDice();
+        audio.play()
     }
 
     render() {
@@ -18,7 +21,7 @@ export class DicesSection extends React.Component {
                             <Dice diceNumber={this.props.dicesValues[1]} />
                         </a>
                     </div>
-                }/>
+                } />
             </>
         )
     }

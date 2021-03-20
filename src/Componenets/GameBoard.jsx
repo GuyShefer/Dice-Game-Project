@@ -8,6 +8,8 @@ import WinnerModal from './WinnerModal';
 import { Popup } from 'semantic-ui-react'
 
 
+const audio = new Audio("/sounds/winner.mp3");
+
 export class GameBoard extends React.Component {
     constructor(props) {
         super(props);
@@ -67,6 +69,7 @@ export class GameBoard extends React.Component {
 
         // check if the current player won
         if (playersArr[currPlayerTurn].totalScore >= this.state.pointsToWin) {
+            audio.play();
             this.setState({ modalActive: true })
         }
         else {
